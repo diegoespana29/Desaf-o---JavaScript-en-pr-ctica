@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Contacto</title>
+    <script src="assets/formulario.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required>
+        <br>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+        <br>   
+
+        <button type="submit">Enviar</button>
+    </form>   
+
+<script>
+    const formulario = document.getElementById('myForm');
+    const nombreInput = document.getElementById('nombre');
+    const asuntoInput = document.getElementById('asunto');
+    const mensajeInput = document.getElementById('mensaje');
+
+    formulario.addEventListener('submit', (event) => {
+        event.preventDefault(); // Evita el envío del formulario por defecto
+
+
+        const regex = /^[a-zA-Z]+$/;
+
+       
+        if (!regex.test(nombreInput.value)) {
+            alert('El nombre solo debe contener letras.');
+            return;
+        }
+
+        if (!regex.test(asuntoInput.value)) {
+            alert('El asunto solo debe contener letras.');
+            return;
+        }
+
+        if (!regex.test(mensajeInput.value)) {
+            alert('El mensaje solo debe contener letras.');
+            return;
+        }
+
+        
+        alert('Formulario enviado correctamente');
+       
+    });</script>
+</body>
+</html>
